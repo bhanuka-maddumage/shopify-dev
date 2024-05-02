@@ -1,15 +1,46 @@
-<section>
-   <h1>Hello World</h1>
+<style>
+  .banner-section {
+    min-height: 700px;
+    padding: 200px 100px;
+    background-image: url('{{ section.settings.background_image | image_url }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .banner-section h1 {
+    color: {{ section.settings.text_color }};
+    font-size: 70px;
+    line-height: 100px;
+  }
+</style>
+
+<section class="banner-section">
+  <h1>{{ section.settings.title }}</h1>
 </section>
 
-{% schema  %}
-{
+{% schema %}
+  {
     "name": "Banner",
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Logo 1"
+      }, {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image",
+        "info": "recommended type is png or jpg"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#FFF"
+      }
+    ],
     "presets": [
-        {
+      {
         "name": "banner"
-        }
+      }
     ]
-}
+  }
 {% endschema %}

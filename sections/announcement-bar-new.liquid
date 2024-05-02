@@ -1,24 +1,95 @@
+<style>
+  .announcement-section {
+    background-color: {{ section.settings.sec_bg_color }};
+    padding: 70px 0 20px;
+  }
+  .announcement-section::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-image: url('{{ section.settings.logo2 | image_url }}');
+    background-size: cover;
+    border-radius: 50%;
+  }
+  .announcement-bar {
+    text-align: center;
+    position: relative;
+  }
+  .announcement-bar h3 {
+    color: {{ section.settings.text_color }};
+    margin: 0;
+  }
+  .logo-wrap img {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+
 {% if section.settings['show-announcement'] %}
-    <section class="page-width">
-        <h3>Announcement Bar New</h3>
-    </section>
+  <section class="announcement-section">
+    <div class="logo-wrap">
+      {% if section.settings.logo1 != blank %}
+        <img
+          width="60px"
+          height="60px"
+          loading="lazy"
+          src="{{ section.settings.logo1 |  image_url }}"
+          alt="logo1">
+      {% endif %}
+    </div>
+    <div class="announcement-bar">
+      <h3>{{ section.settings.title }}</h3>
+    </div>
+  </section>
 {% endif %}
 
-{% schema  %}
-    {
-        "name": "Announcement Bar New",
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "show-announcement",
-                "label": "Show Announcement",
-                "default": true
-            }
-        ],
-        "presets": [
-            {
-            "name": "announcement-bar-new"
-            }
-        ]
-    }
+{% schema %}
+  {
+    "name": "Announcement Bar New",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show-announcement",
+        "label": "Show Announcement",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "logo1",
+        "label": "Logo 1",
+        "info": "recommended type is svg"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "logo2",
+        "label": "Logo 2",
+        "info": "recommended type is svg"
+      },
+      {
+        "type": "color",
+        "id": "sec_bg_color",
+        "label": "Background",
+        "default": "#FFF"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#000"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Enter a title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "announcement-bar-new"
+      }
+    ]
+  }
 {% endschema %}
