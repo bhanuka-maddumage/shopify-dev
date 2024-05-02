@@ -3,12 +3,6 @@
     "banner": {
       "type": "banner",
       "settings": {
-<<<<<<< HEAD
-        "title": "",
-        "background_image": "shopify:\/\/shop_images\/hiker-running-up-beaten-track-between-the-trees.jpg",
-        "text_color": "#FFF"
-=======
->>>>>>> e28aa55b348adb4293869e20f47e900bebd372f2
       }
     },
     "image_banner": {
@@ -25,8 +19,6 @@
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
-<<<<<<< HEAD
-=======
     },
     "featured_product_FejF8T": {
       "type": "featured-product",
@@ -179,7 +171,6 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
->>>>>>> e28aa55b348adb4293869e20f47e900bebd372f2
     }
   },
   "order": [
